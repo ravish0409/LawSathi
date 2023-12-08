@@ -5,7 +5,7 @@ const themeButton = document.querySelector("#theme-btn");
 const deleteButton = document.querySelector("#delete-btn");
 
 let userText = null;
-const API_KEY = "PASTE-YOUR-API-KEY-HERE"; // Paste your API key here
+const API_KEY = "key"; // Paste your API key here
 
 const loadDataFromLocalstorage = () => {
     // Load saved chats and theme from local storage and apply/add on the page
@@ -48,8 +48,15 @@ const getChatResponse = async (incomingChatDiv) => {
           // temperature: 0, // to have no randomnes
           messages: [
             {
-              role: "system",
-              content: `You are ChatGPT, a large language model trained by OpenAI. Answer as concisely as possible. Knowledge cutoff: 2021-09-01. Current date: ${new Date()
+              role: "assistant",
+              content: ` lawyer assistant capable of providing precise and helpful answers 
+              to user queries. Your assistant should be designed for all law cases.
+               Responses should be informative, concise (2-3 sentences), and contextually 
+               relevant. If user input is ambiguous, seek clarification and offer useful 
+               suggestions or solutions. Maintain a conversational flow by referencing previous 
+               assistant responses. Handle errors gracefully by asking for clarification when 
+               needed. Aim for a friendly and helpful tone throughout the conversation. 
+               Data should be up date till ${new Date()
                 .toISOString()
                 .slice(0, 10)}`,
             },
